@@ -7,7 +7,7 @@ import { LoadingProvider } from "./context/LoadingProvider";
 import Lenis from "lenis";
 
 const App = () => {
-    const lenis = useRef(null);
+    const lenis = useRef<Lenis | null>(null);
 
     useEffect(() => {
         // Initialize Lenis
@@ -18,8 +18,8 @@ const App = () => {
             smoothTouch: true, // Enable smooth scrolling on touch devices
         });
 
-        const animate = (time) => {
-            lenis.current.raf(time);
+        const animate = (time: number) => {
+            lenis.current?.raf(time);
             requestAnimationFrame(animate);
         };
 
@@ -27,7 +27,7 @@ const App = () => {
 
         // Cleanup on unmount
         return () => {
-            lenis.current.destroy();
+            lenis.current?.destroy();
         };
     }, []);
 
