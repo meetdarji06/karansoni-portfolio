@@ -14,8 +14,8 @@ const App = () => {
         lenis.current = new Lenis({
             duration: 0.6, // Control the duration of the scroll
             easing: (t) => 1 - Math.pow(1 - t, 3), // Cubic easing for smooth stop
-            smooth: true,
-            smoothTouch: true, // Enable smooth scrolling on touch devices
+            smoothWheel: true, // Enable smooth scrolling on wheel
+            // Remove smoothTouch property if it doesn't exist
         });
 
         const animate = (time: number) => {

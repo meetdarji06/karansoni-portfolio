@@ -16,8 +16,10 @@ const Navbar = () => {
           e.preventDefault();
           let elem = e.currentTarget as HTMLAnchorElement;
           let section = elem.getAttribute("data-href");
-          // Scroll to section without ScrollSmoother
-          document.querySelector(section)?.scrollIntoView({ behavior: "smooth" });
+          if (section) {
+            // Scroll to section without ScrollSmoother
+            document.querySelector(section)?.scrollIntoView({ behavior: "smooth" });
+          }
         }
       });
     });
